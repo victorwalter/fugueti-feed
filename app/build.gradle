@@ -1,0 +1,66 @@
+// Fugueti Feed: small debuggable bridge app so release builds of Fugueti can show the Google
+// app's feed (Google Discover). See src/main/java/app/fugueti/feed/FeedBridgeService.java.
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace "app.fugueti.feed"
+    compileSdk 37
+
+    defaultConfig {
+        applicationId "app.fugueti.feed"
+        minSdk 26
+        targetSdk 37
+        // versionCode = major * 1_000_000 + minor * 10_000 + patch * 100 (same scheme as Fugueti)
+        versionCode 100
+        versionName "0.0.1"
+    }
+
+    buildFeatures {
+        aidl true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    signingConfigs {
+        release {
+            def props = new Properties()
+            def file = rootProject.file("keystore.properties")
+            if (file.exists()) {
+                file.withInputStream { props.load(it) }
+                storeFile rootProject.file(props['storeFile'])
+                storePassword props['storePassword']
+                keyAlias props['keyAlias']
+                keyPassword props['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // The Google app only serves its feed to debuggable (or system) clients: that is the
+            // whole point of this app. It holds no data, requests no permissions and only accepts
+            // Fugueti builds signed with the same key.
+            debuggable true
+            minifyEnabled false
+            signingConfig rootProject.file("keystore.properties").exists()
+                    ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    lint {
+        disable "HardcodedDebugMode"
+    }
+}
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs.forEach { output ->
+            output.outputFileName.set("FuguetiFeed-${output.versionName.get()}.${variant.buildType}.apk")
+        }
+    }
+}
