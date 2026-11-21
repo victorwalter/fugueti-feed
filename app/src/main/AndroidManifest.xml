@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Fugueti Feed: bridge between Fugueti and the Google app's feed (Google Discover).
+  Copyright (C) 2026 Fugueti Launcher contributors
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <queries>
+        <package android:name="com.google.android.googlequicksearchbox" />
+        <package android:name="app.fugueti.launcher" />
+        <package android:name="app.fugueti.launcher.nightly" />
+        <package android:name="app.fugueti.launcher.play" />
+        <package android:name="app.fugueti.launcher.debug" />
+        <package android:name="app.fugueti.launcher.nightly.debug" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <!-- Bound by Fugueti (FeedBridge / LauncherClientBridge) like the Google app's own overlay
+             service; it then binds the Google app on the launcher's behalf. -->
+        <service
+            android:name=".FeedBridgeService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.launcher3.WINDOW_OVERLAY" />
+                <data android:scheme="app" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
