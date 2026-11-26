@@ -1,11 +1,11 @@
 # Fugueti Feed
 
-[![Release](https://github.com/victorwalter/fugueti-feed/actions/workflows/release.yml/badge.svg)](https://github.com/victorwalter/fugueti-feed/actions/workflows/release.yml)
+[![Release](https://github.com/fugueti/feed/actions/workflows/release.yml/badge.svg)](https://github.com/fugueti/feed/actions/workflows/release.yml)
 [![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)](LICENSE)
 <!-- Release and download count badges: shields.io cannot read private repositories,
      so they show "repo not found" until the repository is public. Uncomment them then.
-[![Latest release](https://img.shields.io/github/v/release/victorwalter/fugueti-feed?include_prereleases&label=release&logo=github)](https://github.com/victorwalter/fugueti-feed/releases/latest)
-[![GitHub Downloads](https://img.shields.io/github/downloads/victorwalter/fugueti-feed/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/victorwalter/fugueti-feed/releases)
+[![Latest release](https://img.shields.io/github/v/release/fugueti/feed?include_prereleases&label=release&logo=github)](https://github.com/fugueti/feed/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/fugueti/feed/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/fugueti/feed/releases)
 -->
 
 Small companion app that lets **[Fugueti](https://github.com/victorwalter/fugueti-launcher)**
@@ -18,7 +18,7 @@ show the Google feed (Google Discover) on the page to the left of the home scree
 1. Install [Fugueti](https://github.com/victorwalter/fugueti-launcher/releases/latest) and make it
    your home app.
 2. Download `FuguetiFeed-<version>.release.apk` from the
-   [latest release](https://github.com/victorwalter/fugueti-feed/releases/latest) and install it.
+   [latest release](https://github.com/fugueti/feed/releases/latest) and install it.
    It has no icon to open: it works in the background for Fugueti.
 3. In Fugueti: long press the home screen → *Home settings* → *Home screen* → turn on
    **Show feed**.
