@@ -13,8 +13,8 @@ android {
         minSdk 26
         targetSdk 37
         // versionCode = major * 1_000_000 + minor * 10_000 + patch * 100 (same scheme as Fugueti)
-        versionCode 100
-        versionName "0.0.1"
+        versionCode 200
+        versionName "0.0.2"
     }
 
     buildFeatures {

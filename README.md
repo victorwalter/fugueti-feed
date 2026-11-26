@@ -55,7 +55,9 @@ down and keep it out of the Play Store, so the debuggable part lives in this tin
 ## Safety
 
 - No permissions, no stored data, no network access of its own.
-- Only accepts Fugueti builds (`app.fugueti.launcher*`) **signed with the same key** as this app.
+- Only accepts Fugueti builds (`app.fugueti.launcher*`) **signed with the same key** as this app,
+  and the Google Play version (`app.fugueti.launcher.play`) signed by Google Play (its certificates
+  are listed in `CallerCheck`).
 - Fugueti recognizes the bridge by its signing certificate and prefers it over other bridges.
 
 ## Build
